@@ -1,4 +1,10 @@
 var startButton = document.querySelector("#startbtn");
+var startpage = document.querySelector("#startpage")
+var questionpage = document.querySelector(".questionpage")
+var optionbuttons = document.querySelectorAll(".option")
+var endpage = document.querySelector(".alldonepage")
+var form= document.querySelector("#form")
+var input= document.querySelector("#input")
 
 const questions = [ // array of objects
     {
@@ -36,6 +42,21 @@ const questions = [ // array of objects
 startButton.addEventListener("click", startGame);
 function startGame() {
  console.log("click");
+startpage.classList.add("test")
+questionpage.classList.remove("test")
+}
 
+for (let index = 0; index < optionbuttons.length; index++) {
+    const optionbutton = optionbuttons[index];
+    optionbutton.addEventListener("click",evalAns)
+}
+function evalAns() {
+    questionpage.classList.add("test")
+    endpage.classList.remove("test")
+}
 
+form.addEventListener("submit", submitform)
+function submitform(evt){
+    evt.preventDefault()
+    console.log(input.value);
 }
